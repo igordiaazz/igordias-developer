@@ -18,7 +18,7 @@ export function About({ about }: { about: Dictionary["about"] }) {
         </div>
         <div className="relative mx-auto aspect-square w-64 overflow-hidden rounded-2xl border border-border bg-card sm:w-80 md:mx-0 md:w-[28rem]">
           <Image
-            src="/about/igor.png"
+            src="/about/igor.webp"
             alt="Foto de Igor Dias"
             fill
             sizes="(max-width: 768px) 14rem, 18rem"

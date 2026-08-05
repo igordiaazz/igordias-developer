@@ -1,10 +1,11 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { BackToTop } from "@/components/back-to-top";
 
 const socials = [
   { label: "GitHub", href: "https://github.com/igordiaazz", icon: FaGithub },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/igordiaazz/", icon: FaLinkedin },
+  { label: "Instagram", href: "https://instagram.com/igordiaazz", icon: FaInstagram },
 ];
 
 export function Footer({ footer }: { footer: Dictionary["footer"] }) {

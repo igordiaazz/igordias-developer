@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { lang } from "next/root-params";
 import { Geist, Geist_Mono } from "next/font/google";
+import { LazyMotion, domAnimation } from "motion/react";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -39,21 +40,11 @@ export default async function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} dark`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Sans+JP:wght@400;600&family=Noto+Sans+KR:wght@400;600&family=Noto+Sans+SC:wght@400;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
-        <SplashScreen />
+        <LazyMotion features={domAnimation} strict>
+          <ThemeProvider>{children}</ThemeProvider>
+          <SplashScreen />
+        </LazyMotion>
       </body>
     </html>
   );

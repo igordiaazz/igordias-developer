@@ -375,6 +375,7 @@ const PixelBlast = ({
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+    let io: IntersectionObserver | undefined;
     speedRef.current = speed;
     const needsReinitKeys: (keyof typeof cfg)[] = ["antialias", "liquid", "noiseAmount"];
     const cfg = { antialias, liquid, noiseAmount };
@@ -538,11 +539,12 @@ const PixelBlast = ({
         passive: true,
       });
       let raf = 0;
-      const animate = () => {
-        if (autoPauseOffscreen && !visibilityRef.current.visible) {
-          raf = requestAnimationFrame(animate);
+      let stopped = false;
+      const animate = () => {        if (autoPauseOffscreen && !visibilityRef.current.visible) {
+          stopped = true;
           return;
         }
+        stopped = false;
         uniforms.uTime.value = timeOffset + clock.getElapsedTime() * speedRef.current;
         if (liquidEffect) liquidEffect.uniforms.get("uTime").value = uniforms.uTime.value;
         if (composer) {
@@ -558,8 +560,25 @@ const PixelBlast = ({
           composer.render();
         } else renderer.render(scene, camera);
         raf = requestAnimationFrame(animate);
+        if (threeRef.current) threeRef.current.raf = raf;
       };
       raf = requestAnimationFrame(animate);
+
+      if (typeof IntersectionObserver !== "undefined" && container) {
+        io = new IntersectionObserver(
+          (entries) => {
+            const visible = entries[0]?.isIntersecting ?? true;
+            visibilityRef.current.visible = visible;
+            if (visible && stopped && autoPauseOffscreen) {
+              raf = requestAnimationFrame(animate);
+              if (threeRef.current) threeRef.current.raf = raf;
+            }
+          },
+          { threshold: 0 }
+        );
+        io.observe(container);
+      }
+
       threeRef.current = {
         renderer,
         scene,
@@ -605,6 +624,7 @@ const PixelBlast = ({
       if (!threeRef.current) return;
       const t = threeRef.current;
       t.resizeObserver?.disconnect();
+      io?.disconnect();
       cancelAnimationFrame(t.raf);
       t.quad?.geometry.dispose();
       t.material.dispose();

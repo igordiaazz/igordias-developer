@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import createGlobe from "cobe";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 export function Globe({ className }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -12,48 +12,73 @@ export function Globe({ className }: { className?: string }) {
   useEffect(() => {
     let phi = 0;
     let width = 0;
+    let globe: ReturnType<typeof createGlobe> | undefined;
+    let frame = 0;
+    let started = false;
+
     const onResize = () => {
       if (canvasRef.current) width = canvasRef.current.offsetWidth;
     };
     window.addEventListener("resize", onResize);
     onResize();
 
-    const globe = createGlobe(canvasRef.current!, {
-      devicePixelRatio: 2,
-      width: width * 2,
-      height: width * 2,
-      phi: 0,
-      theta: 0.3,
-      dark: 1,
-      diffuse: 1.2,
-      mapSamples: 16000,
-      mapBrightness: 6,
-      baseColor: [0.3, 0.3, 0.3],
-      markerColor: [0.1, 0.8, 1],
-      glowColor: [1, 1, 1],
-      markers: [{ location: [-23.55, -46.63], size: 0.08 }],
-    });
-
-    let frame = 0;
-    const animate = () => {
-      if (!pointerInteracting.current) phi += 0.005;
-      globe.update({
-        phi: phi + pointerInteractionMovement.current,
+    const start = () => {
+      if (started || !canvasRef.current) return;
+      started = true;
+      width = canvasRef.current.offsetWidth;
+      globe = createGlobe(canvasRef.current, {
+        devicePixelRatio: 2,
         width: width * 2,
         height: width * 2,
+        phi: 0,
+        theta: 0.3,
+        dark: 1,
+        diffuse: 1.2,
+        mapSamples: 8000,
+        mapBrightness: 6,
+        baseColor: [0.3, 0.3, 0.3],
+        markerColor: [0.1, 0.8, 1],
+        glowColor: [1, 1, 1],
+        markers: [{ location: [-23.55, -46.63], size: 0.08 }],
       });
-      frame = requestAnimationFrame(animate);
-    };
-    animate();
 
-    setTimeout(() => {
-      if (canvasRef.current) canvasRef.current.style.opacity = "1";
-    }, 0);
+      const animate = () => {
+        if (!pointerInteracting.current) phi += 0.005;
+        globe!.update({
+          phi: phi + pointerInteractionMovement.current,
+          width: width * 2,
+          height: width * 2,
+        });
+        frame = requestAnimationFrame(animate);
+      };
+      animate();
+
+      setTimeout(() => {
+        if (canvasRef.current) canvasRef.current.style.opacity = "1";
+      }, 0);
+    };
+
+    const stop = () => {
+      if (!started) return;
+      started = false;
+      cancelAnimationFrame(frame);
+      globe?.destroy();
+      globe = undefined;
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) start();
+        else stop();
+      },
+      { threshold: 0.1 }
+    );
+    if (canvasRef.current) io.observe(canvasRef.current);
 
     return () => {
-      cancelAnimationFrame(frame);
-      globe.destroy();
+      io.disconnect();
       window.removeEventListener("resize", onResize);
+      stop();
     };
   }, []);
 
@@ -68,7 +93,7 @@ export function Globe({ className }: { className?: string }) {
         position: "relative",
       }}
     >
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -111,7 +136,7 @@ export function Globe({ className }: { className?: string }) {
             transition: "opacity 1s ease",
           }}
         />
-      </motion.div>
+      </m.div>
     </div>
   );
 }

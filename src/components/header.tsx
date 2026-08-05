@@ -13,6 +13,7 @@ import {
   FiCode,
   FiGlobe,
   FiFolder,
+  FiMail,
 } from "react-icons/fi";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleToggle } from "@/components/locale-toggle";
@@ -56,6 +57,7 @@ export function Header({
     { href: "#skills", label: skillsLabel ?? "Skills", icon: FiCode },
     { href: "#languages", label: languagesLabel ?? "Languages", icon: FiGlobe },
     { href: "#projects", label: nav.projects, icon: FiFolder },
+    { href: "#contact", label: "Contact", icon: FiMail },
   ];
 
   return (

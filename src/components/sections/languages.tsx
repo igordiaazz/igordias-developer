@@ -1,5 +1,12 @@
+"use client";
+
 import { Section } from "@/components/section";
-import { Globe } from "@/components/ui/globe";
+import dynamic from "next/dynamic";
+
+const Globe = dynamic(
+  () => import("@/components/ui/globe").then((m) => m.Globe),
+  { ssr: false }
+);
 
 type Language = {
   name: string;

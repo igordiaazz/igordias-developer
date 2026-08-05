@@ -1,13 +1,29 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { m, useReducedMotion } from "motion/react";
 
 const FLAG = "igor_splash_seen";
+const CJK_FONT_HREF =
+  "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Sans+KR:wght@400;600&family=Noto+Sans+SC:wght@400;600&display=swap";
+
+function useCjkFont(active: boolean) {
+  useEffect(() => {
+    if (!active || typeof document === "undefined") return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = CJK_FONT_HREF;
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [active]);
+}
 
 export function SplashScreen() {
   const reduce = useReducedMotion();
   const [hidden, setHidden] = useState(false);
+  useCjkFont(!hidden);
   const [done, setDone] = useState(false);
   const [index, setIndex] = useState(0);
   const finishedRef = useRef(false);
@@ -53,8 +69,8 @@ export function SplashScreen() {
       };
     }
 
-    const step = 620;
-    const pause = 800;
+    const step = 340;
+    const pause = 250;
     let i = 0;
     let timer: ReturnType<typeof setTimeout> = setTimeout(function tick() {
       setIndex(i);
@@ -75,13 +91,13 @@ export function SplashScreen() {
   if (hidden) return null;
 
   return (
-    <motion.div
+    <m.div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
       initial={{ opacity: 1 }}
       animate={{ opacity: done ? 0 : 1 }}
       transition={{ duration: 1.2 }}
     >
-      <motion.span
+      <m.span
         key={index}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -93,7 +109,7 @@ export function SplashScreen() {
         }}
       >
         {sequence[index]}
-      </motion.span>
-    </motion.div>
+      </m.span>
+    </m.div>
   );
 }
