@@ -29,7 +29,7 @@ export function Hero({
   return (
     <section
       id="top"
-      className="relative flex min-h-[88vh] w-full flex-col items-center justify-start overflow-hidden px-6 py-16 text-center sm:py-24"
+      className="relative flex min-h-[88vh] w-full flex-col items-center justify-start overflow-hidden px-6 py-16 text-center sm:justify-center sm:py-24"
     >
       <Particles
         className="absolute inset-0 z-0"
@@ -38,7 +38,7 @@ export function Hero({
         color={color}
         refresh
       />
-      <div className="relative z-10 mx-auto w-full max-w-5xl pt-4 sm:pt-6">
+      <div className="relative z-10 mx-auto w-full max-w-5xl pt-4 sm:pt-0">
         <p className="text-sm font-medium uppercase tracking-widest text-muted">
           {hero.greeting}
         </p>

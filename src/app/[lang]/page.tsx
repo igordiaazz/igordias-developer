@@ -3,6 +3,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/routing";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Reveal } from "@/components/reveal";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Projects } from "@/components/sections/projects";
@@ -56,7 +57,9 @@ export default async function Home() {
           locale={locale}
         />
       </main>
-      <Footer footer={dict.footer} />
+      <Reveal>
+        <Footer footer={dict.footer} />
+      </Reveal>
     </>
   );
 }
