@@ -3,10 +3,13 @@
 import { motion, useReducedMotion } from "motion/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import type { Dictionary } from "@/i18n/dictionaries";
-import LetterGlitch from "@/components/letter-glitch";
+import PixelBlast from "@/components/pixel-blast";
+import { useTheme } from "@/components/theme-provider";
 
 export function Hero({ hero }: { hero: Dictionary["hero"] }) {
   const reduce = useReducedMotion();
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   return (
     <section
@@ -14,13 +17,26 @@ export function Hero({ hero }: { hero: Dictionary["hero"] }) {
       className="relative flex min-h-[88vh] w-full flex-col items-center justify-center overflow-hidden px-6 py-24 text-center"
     >
       <div className="pointer-events-none absolute -top-14 inset-x-0 bottom-0 -z-10">
-        <LetterGlitch
-          glitchSpeed={50}
-          centerVignette={true}
-          outerVignette={false}
-          smooth={true}
-          glitchColors={["#2b3045", "#6184dc", "#3d5382"]}
+        <PixelBlast
+          variant="circle"
+          pixelSize={6}
+          color={isDark ? "#5b21b6" : "#6b7280"}
+          patternScale={3}
+          patternDensity={1.2}
+          pixelSizeJitter={0.5}
+          enableRipples
+          rippleSpeed={0.4}
+          rippleThickness={0.12}
+          rippleIntensityScale={1.5}
+          liquid
+          liquidStrength={0.12}
+          liquidRadius={1.2}
+          liquidWobbleSpeed={5}
+          speed={0.6}
+          edgeFade={0.25}
+          transparent
         />
+        {isDark && <div className="absolute inset-0 bg-black/60" />}
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
       <div className="relative z-10 mx-auto w-full max-w-5xl">
@@ -28,7 +44,7 @@ export function Hero({ hero }: { hero: Dictionary["hero"] }) {
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={reduce ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
-          className="mt-2 text-7xl font-semibold tracking-tight text-white sm:text-9xl"
+          className="mt-2 text-7xl font-semibold tracking-tight text-foreground sm:text-9xl"
         >
           {hero.name}
         </motion.h1>
@@ -36,7 +52,7 @@ export function Hero({ hero }: { hero: Dictionary["hero"] }) {
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={reduce ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 1.3 }}
-          className="mt-4 text-4xl font-medium text-white sm:text-6xl"
+          className="mt-4 text-4xl font-medium text-foreground sm:text-6xl"
         >
           {hero.role}
         </motion.p>
