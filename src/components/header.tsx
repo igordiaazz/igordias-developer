@@ -13,7 +13,6 @@ import {
   FiCode,
   FiGlobe,
   FiFolder,
-  FiBriefcase,
 } from "react-icons/fi";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleToggle } from "@/components/locale-toggle";
@@ -55,9 +54,8 @@ export function Header({
     { href: "#top", label: backToTopLabel ?? "Back to top", icon: FiArrowUp },
     { href: "#about", label: nav.about, icon: FiUser },
     { href: "#skills", label: skillsLabel ?? "Skills", icon: FiCode },
-    { href: "#projects", label: nav.projects, icon: FiFolder },
-    { href: "#experience", label: nav.experience, icon: FiBriefcase },
     { href: "#languages", label: languagesLabel ?? "Languages", icon: FiGlobe },
+    { href: "#projects", label: nav.projects, icon: FiFolder },
   ];
 
   return (
