@@ -376,6 +376,7 @@ const PixelBlast = ({
     const container = containerRef.current;
     if (!container) return;
     let io: IntersectionObserver | undefined;
+    let onVisibility: (() => void) | undefined;
     speedRef.current = speed;
     const needsReinitKeys: (keyof typeof cfg)[] = ["antialias", "liquid", "noiseAmount"];
     const cfg = { antialias, liquid, noiseAmount };
@@ -540,7 +541,11 @@ const PixelBlast = ({
       });
       let raf = 0;
       let stopped = false;
-      const animate = () => {        if (autoPauseOffscreen && !visibilityRef.current.visible) {
+      const animate = () => {
+        if (
+          (autoPauseOffscreen && !visibilityRef.current.visible) ||
+          document.hidden
+        ) {
           stopped = true;
           return;
         }
@@ -578,6 +583,19 @@ const PixelBlast = ({
         );
         io.observe(container);
       }
+
+      onVisibility = () => {
+        if (
+          !document.hidden &&
+          visibilityRef.current.visible &&
+          autoPauseOffscreen &&
+          stopped
+        ) {
+          raf = requestAnimationFrame(animate);
+          if (threeRef.current) threeRef.current.raf = raf;
+        }
+      };
+      document.addEventListener("visibilitychange", onVisibility);
 
       threeRef.current = {
         renderer,
@@ -625,6 +643,7 @@ const PixelBlast = ({
       const t = threeRef.current;
       t.resizeObserver?.disconnect();
       io?.disconnect();
+      if (onVisibility) document.removeEventListener("visibilitychange", onVisibility);
       cancelAnimationFrame(t.raf);
       t.quad?.geometry.dispose();
       t.material.dispose();

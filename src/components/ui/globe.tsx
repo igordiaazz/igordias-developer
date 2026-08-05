@@ -15,6 +15,7 @@ export function Globe({ className }: { className?: string }) {
     let globe: ReturnType<typeof createGlobe> | undefined;
     let frame = 0;
     let started = false;
+    let inView = false;
 
     const onResize = () => {
       if (canvasRef.current) width = canvasRef.current.offsetWidth;
@@ -66,10 +67,18 @@ export function Globe({ className }: { className?: string }) {
       globe = undefined;
     };
 
+    const updateRunning = () => {
+      if (inView && !document.hidden) start();
+      else stop();
+    };
+
+    const onVisibility = () => updateRunning();
+    document.addEventListener("visibilitychange", onVisibility);
+
     const io = new IntersectionObserver(
       (entries) => {
-        if (entries[0]?.isIntersecting) start();
-        else stop();
+        inView = entries[0]?.isIntersecting ?? false;
+        updateRunning();
       },
       { threshold: 0.1 }
     );
@@ -77,6 +86,7 @@ export function Globe({ className }: { className?: string }) {
 
     return () => {
       io.disconnect();
+      document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("resize", onResize);
       stop();
     };
