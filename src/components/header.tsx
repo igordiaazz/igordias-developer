@@ -6,10 +6,15 @@ import {
   FaFolderOpen,
   FaBriefcase,
   FaFileDownload,
-  FaCode,
-  FaArrowUp,
-  FaGlobe,
 } from "react-icons/fa";
+import {
+  FiArrowUp,
+  FiUser,
+  FiCode,
+  FiGlobe,
+  FiFolder,
+  FiBriefcase,
+} from "react-icons/fi";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleToggle } from "@/components/locale-toggle";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -47,10 +52,12 @@ export function Header({
   ];
 
   const dockLinks = [
-    { href: "#top", label: backToTopLabel ?? "Back to top", icon: FaArrowUp },
-    { href: "#about", label: nav.about, icon: FaUser },
-    { href: "#skills", label: skillsLabel ?? "Skills", icon: FaCode },
-    { href: "#languages", label: languagesLabel ?? "Languages", icon: FaGlobe },
+    { href: "#top", label: backToTopLabel ?? "Back to top", icon: FiArrowUp },
+    { href: "#about", label: nav.about, icon: FiUser },
+    { href: "#skills", label: skillsLabel ?? "Skills", icon: FiCode },
+    { href: "#projects", label: nav.projects, icon: FiFolder },
+    { href: "#experience", label: nav.experience, icon: FiBriefcase },
+    { href: "#languages", label: languagesLabel ?? "Languages", icon: FiGlobe },
   ];
 
   return (

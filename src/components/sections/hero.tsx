@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -9,7 +10,9 @@ import { useTheme } from "@/components/theme-provider";
 export function Hero({ hero }: { hero: Dictionary["hero"] }) {
   const reduce = useReducedMotion();
   const { theme } = useTheme();
-  const isDark = theme === "dark";
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const isDark = mounted ? theme === "dark" : true;
 
   return (
     <section
@@ -20,7 +23,7 @@ export function Hero({ hero }: { hero: Dictionary["hero"] }) {
         <PixelBlast
           variant="circle"
           pixelSize={6}
-          color={isDark ? "#5b21b6" : "#6b7280"}
+          color="#8b5cf6"
           patternScale={3}
           patternDensity={1.2}
           pixelSizeJitter={0.5}
@@ -52,7 +55,7 @@ export function Hero({ hero }: { hero: Dictionary["hero"] }) {
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={reduce ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 1.3 }}
-          className="mt-4 text-4xl font-medium text-foreground sm:text-6xl"
+          className="mt-4 text-4xl font-light text-foreground sm:text-6xl"
         >
           {hero.role}
         </motion.p>
