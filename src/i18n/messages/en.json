@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Igor Dias | FullStack Developer",
+    "description": "Fullstack developer focused on fast, accessible and well-designed web products."
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "cv": "Download CV",
+    "contact": "Get in touch"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Igor Dias",
+    "role": "Fullstack Developer",
+    "tagline": "I build digital products focused on performance, design and user experience.",
+    "ctaPrimary": "View projects",
+    "ctaSecondary": "Get in touch",
+    "ctaCv": "Download Curriculum Vitae"
+  },
+  "about": {
+    "title": "About me",
+    "body": [
+      "I'm a Full-Stack Developer and an undergraduate student pursuing a Bachelor's degree in Information Technology at UFRN, with a solid technical foundation built at IFRN and hands-on experience across the full application lifecycle.",
+      "I focus on building scalable architectures using Node.js and FastAPI, connecting robust back-ends to modern interfaces with React and TypeScript. My practical experience includes developing microservices orchestrated via Docker and prototyping intelligent solutions based on Artificial Intelligence, with an emphasis on RAG and Computer Vision.",
+      "I bring to software development a strong analytical ability to solve complex problems, a skill shaped and deepened by my previous roles in IT support and infrastructure."
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Some recent work and experiments.",
+    "viewLive": "Live",
+    "viewCode": "View Code"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Where I've worked and what I've built.",
+    "skillsTitle": "Skills",
+    "skillCategories": {
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "data-ai": "Data & AI",
+      "data-storage": "Data Storage",
+      "tools": "Tools"
+    }
+  },
+  "footer": {
+    "heading": "Let's build something wonderful together?",
+    "backToTop": "Back to top"
+  },
+  "languages": {
+    "title": "Languages",
+    "items": [
+      { "name": "Portuguese", "level": "Native" },
+      { "name": "English", "level": "Fluent (C1)" },
+      { "name": "Spanish", "level": "Intermediate (B2)" },
+      { "name": "French", "level": "Basic (A1)" }
+    ]
+  },
+  "theme": {
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "label": "Language"
+  }
+}

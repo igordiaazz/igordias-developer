@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Igor Dias | FullStack Developer",
+    "description": "Desenvolvedor fullstack focado em produtos web rápidos, acessíveis e bem desenhados."
+  },
+  "nav": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "cv": "Baixar Currículo",
+    "contact": "Entrar em contato"
+  },
+  "hero": {
+    "greeting": "Olá, eu sou",
+    "name": "Igor Dias",
+    "role": "Desenvolvedor Fullstack",
+    "tagline": "Eu construo produtos digitais com foco em performance, design e experiência do usuário.",
+    "ctaPrimary": "Ver projetos",
+    "ctaSecondary": "Entrar em contato",
+    "ctaCv": "Baixar Currículo Vitae"
+  },
+  "about": {
+    "title": "Sobre mim",
+    "body": [
+      "Sou Desenvolvedor Full-Stack e graduando em Bacharelado em Tecnologia da Informação pela UFRN, com sólida base técnica construída no IFRN e experiência prática em todo o ciclo de vida de aplicações.",
+      "Tenho foco na construção de arquiteturas escaláveis utilizando Node.js e FastAPI, conectando back-ends robustos a interfaces modernas com React e TypeScript. Minha vivência prática inclui o desenvolvimento de microsserviços orquestrados via Docker e a prototipagem de soluções inteligentes baseadas em Inteligência Artificial, com ênfase em RAG e Visão Computacional.",
+      "Trago para o desenvolvimento de software uma forte capacidade analítica na resolução de problemas complexos, habilidade que foi moldada e aprofundada pelas minhas atuações anteriores em suporte e infraestrutura de TI."
+    ]
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Alguns trabalhos recentes e experimentos.",
+    "viewLive": "Ver online",
+    "viewCode": "Ver Código"
+  },
+  "experience": {
+    "title": "Experiência",
+    "subtitle": "Onde atuei e com o que trabalhei.",
+    "skillsTitle": "Habilidades",
+    "skillCategories": {
+      "languages": "Linguagens",
+      "frontend": "Front-end",
+      "backend": "Back-end",
+      "data-ai": "Dados & IA",
+      "data-storage": "Armazenamento de Dados",
+      "tools": "Ferramentas"
+    }
+  },
+  "footer": {
+    "heading": "Vamos construir algo maravilhoso juntos?",
+    "backToTop": "Voltar ao topo"
+  },
+  "languages": {
+    "title": "Idiomas",
+    "items": [
+      { "name": "Português", "level": "Nativo" },
+      { "name": "Inglês", "level": "Fluente (C1)" },
+      { "name": "Espanhol", "level": "Intermediário (B2)" },
+      { "name": "Francês", "level": "Básico (A1)" }
+    ]
+  },
+  "theme": {
+    "toggle": "Alternar tema"
+  },
+  "language": {
+    "label": "Idioma"
+  }
+}
