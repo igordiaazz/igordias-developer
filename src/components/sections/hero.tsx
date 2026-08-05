@@ -29,7 +29,7 @@ export function Hero({
   return (
     <section
       id="top"
-      className="relative flex min-h-[88vh] w-full flex-col items-center justify-center overflow-hidden px-6 py-24 text-center"
+      className="relative flex min-h-[88vh] w-full flex-col items-center justify-start overflow-hidden px-6 py-16 text-center sm:py-24"
     >
       <Particles
         className="absolute inset-0 z-0"
@@ -38,7 +38,7 @@ export function Hero({
         color={color}
         refresh
       />
-      <div className="relative z-10 mx-auto w-full max-w-5xl pt-10 sm:pt-0">
+      <div className="relative z-10 mx-auto w-full max-w-5xl pt-4 sm:pt-6">
         <p className="text-sm font-medium uppercase tracking-widest text-muted">
           {hero.greeting}
         </p>
@@ -54,7 +54,7 @@ export function Hero({
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={reduce ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 1.3 }}
-          className="mt-4 text-4xl font-light text-muted sm:text-6xl"
+          className="mt-4 text-sm font-medium uppercase tracking-widest text-muted"
         >
           {hero.role}
         </m.p>
