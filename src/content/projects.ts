@@ -4,7 +4,7 @@ export type Project = {
   slug: string;
   title: string;
   description: Localized;
-  tech: string[];
+  tech: Localized[];
   image?: string;
   liveUrl?: string;
   repoUrl?: string;
@@ -19,8 +19,18 @@ export const projects: Project[] = [
       pt: "Plataforma full-stack de ensino de lógica em Python com gamificação e tutoria adaptativa por IA. Autenticação OAuth e persistência em tempo real via Supabase; tutor IA via OpenRouter gera desafios e feedback conforme a performance.",
       en: "Full-stack Python logic-teaching platform with gamification and AI adaptive tutoring. OAuth auth and real-time persistence via Supabase; an OpenRouter AI tutor generates challenges and feedback based on performance.",
     },
-    tech: ["Next.js", "TypeScript", "React", "Supabase", "PostgreSQL", "Tailwind CSS", "OpenRouter API"],
+    tech: [
+      { pt: "Next.js", en: "Next.js" },
+      { pt: "TypeScript", en: "TypeScript" },
+      { pt: "React", en: "React" },
+      { pt: "Supabase", en: "Supabase" },
+      { pt: "PostgreSQL", en: "PostgreSQL" },
+      { pt: "Tailwind CSS", en: "Tailwind CSS" },
+      { pt: "OpenRouter API", en: "OpenRouter API" },
+    ],
     liveUrl: "https://first-kodes.vercel.app/",
+    image: "/projects/first-kodes.webp",
+    featured: true,
   },
   {
     slug: "pdf-mind",
@@ -29,7 +39,18 @@ export const projects: Project[] = [
       pt: "Sistema RAG em microsserviços para extração de dados de documentos. Front-end React/NestJS/PostgreSQL e inferência BERT isolada em FastAPI (Python), orquestrado com Docker.",
       en: "RAG microservices system for document data extraction. React/NestJS/PostgreSQL front-end with isolated BERT inference in FastAPI (Python), orchestrated via Docker.",
     },
-    tech: ["React", "TypeScript", "Tailwind CSS", "NestJS", "Node.js", "PostgreSQL", "Python", "FastAPI", "Hugging Face", "Docker"],
+    tech: [
+      { pt: "React", en: "React" },
+      { pt: "TypeScript", en: "TypeScript" },
+      { pt: "Tailwind CSS", en: "Tailwind CSS" },
+      { pt: "NestJS", en: "NestJS" },
+      { pt: "Node.js", en: "Node.js" },
+      { pt: "PostgreSQL", en: "PostgreSQL" },
+      { pt: "Python", en: "Python" },
+      { pt: "FastAPI", en: "FastAPI" },
+      { pt: "Hugging Face", en: "Hugging Face" },
+      { pt: "Docker", en: "Docker" },
+    ],
     repoUrl: "https://github.com/igordiaazz/pdf-mind",
   },
   {
@@ -39,7 +60,17 @@ export const projects: Project[] = [
       pt: "Plataforma de visão computacional com upload e predição de imagens. Back-end Node.js/PostgreSQL e motor de IA em FastAPI servindo uma CNN PyTorch (CIFAR-10) exportada via TorchScript.",
       en: "Computer vision platform for image upload and prediction. Node.js/PostgreSQL back-end with an AI engine in FastAPI serving a PyTorch CNN (CIFAR-10) exported via TorchScript.",
     },
-    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL", "PyTorch", "FastAPI", "Docker", "Visão Computacional"],
+    tech: [
+      { pt: "React", en: "React" },
+      { pt: "TypeScript", en: "TypeScript" },
+      { pt: "Tailwind CSS", en: "Tailwind CSS" },
+      { pt: "Node.js", en: "Node.js" },
+      { pt: "PostgreSQL", en: "PostgreSQL" },
+      { pt: "PyTorch", en: "PyTorch" },
+      { pt: "FastAPI", en: "FastAPI" },
+      { pt: "Docker", en: "Docker" },
+      { pt: "Visão Computacional", en: "Computer Vision" },
+    ],
     repoUrl: "https://github.com/igordiaazz/classificationIA",
   },
 ];

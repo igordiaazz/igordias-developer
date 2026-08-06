@@ -395,6 +395,15 @@ export function Cobe({
       io.observe(containerRef.current)
     }
 
+    const onVisibility = () => {
+      if (document.hidden) {
+        stopLoop()
+      } else if (visibleRef.current) {
+        startLoop()
+      }
+    }
+    document.addEventListener("visibilitychange", onVisibility)
+
     if (canvasRef.current) {
       setTimeout(() => {
         if (canvasRef.current) {
@@ -406,6 +415,7 @@ export function Cobe({
     return () => {
       stopLoop()
       io?.disconnect()
+      document.removeEventListener("visibilitychange", onVisibility)
       globe.destroy()
       window.removeEventListener("resize", onResize)
     }

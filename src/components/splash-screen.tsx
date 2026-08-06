@@ -75,7 +75,7 @@ export function SplashScreen() {
     let timer: ReturnType<typeof setTimeout> = setTimeout(function tick() {
       setIndex(i);
       if (i >= sequence.length - 1) {
-        setTimeout(finish, pause);
+        setTimeout(finish, pause + 1000);
         return;
       }
       i += 1;
@@ -97,11 +97,7 @@ export function SplashScreen() {
       animate={{ opacity: done ? 0 : 1 }}
       transition={{ duration: 1.2 }}
     >
-      <m.span
-        key={index}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+      <span
         className="text-5xl font-semibold tracking-tight text-foreground sm:text-7xl"
         style={{
           fontFamily:
@@ -109,7 +105,7 @@ export function SplashScreen() {
         }}
       >
         {sequence[index]}
-      </m.span>
+      </span>
     </m.div>
   );
 }
