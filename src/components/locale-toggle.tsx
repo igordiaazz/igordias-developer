@@ -16,7 +16,7 @@ export function LocaleToggle({ label }: { label: string }) {
 
   return (
     <div
-      className="flex items-center gap-1 rounded-full border border-border p-1 text-sm"
+      className="flex items-center gap-1 rounded-full border border-border/60 bg-background/70 p-1 text-sm shadow-lg backdrop-blur-xl"
       aria-label={label}
     >
       {locales.map((locale) => {

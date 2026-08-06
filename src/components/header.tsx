@@ -83,7 +83,7 @@ export function Header({
         </div>
       </header>
 
-      <div className="fixed right-4 top-4 z-50 flex items-center gap-2 rounded-full border border-border/60 bg-background/70 p-1.5 shadow-lg backdrop-blur-xl sm:hidden">
+      <div className="fixed right-4 top-4 z-50 flex items-center gap-2 sm:hidden">
         <LocaleToggle label={langLabel} />
         <ThemeToggle label={themeLabel} />
       </div>
