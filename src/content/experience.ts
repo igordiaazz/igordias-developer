@@ -51,7 +51,7 @@ export const skillCategories: SkillCategory[] = [
     id: "frontend",
     items: ["Next.js", "React", "TailwindCSS", "HTML5", "CSS3"],
   },
-  { id: "backend", items: ["Node.js", "FastAPI", "Supabase"] },
+  { id: "backend", items: ["Node.js", "FastAPI", "Supabase", "Google Cloud Platform"] },
   {
     id: "data-ai",
     items: ["PyTorch", "TensorFlow", "Pandas", "Scikit-Learn", "OpenRouter"],

@@ -53,8 +53,8 @@
   "languages": {
     "title": "Languages",
     "items": [
-      { "name": "Portuguese", "level": "Native" },
-      { "name": "English", "level": "Fluent (C1)" },
+      { "name": "Portuguese", "level": "Native", "highlight": true },
+      { "name": "English", "level": "Fluent (C1)", "highlight": true },
       { "name": "Spanish", "level": "Intermediate (B2)" },
       { "name": "French", "level": "Basic (A1)" }
     ]

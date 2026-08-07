@@ -5,6 +5,7 @@ import {
   SiDocker,
   SiFastapi,
   SiGit,
+  SiGooglecloud,
   SiHtml5,
   SiJavascript,
   SiMongodb,
@@ -49,6 +50,7 @@ const ICONS: Record<string, IconType> = {
   "MongoDB": SiMongodb,
   "Docker": SiDocker,
   "Git": SiGit,
+  "Google Cloud Platform": SiGooglecloud,
 };
 
 export function TechIcon({ name, className }: { name: string; className?: string }) {

@@ -11,6 +11,7 @@ const Cobe = dynamic(
 type Language = {
   name: string;
   level: string;
+  highlight?: boolean;
 };
 
 type Props = {
@@ -32,7 +33,14 @@ export function Languages({ title, items }: Props) {
               key={lang.name}
               className="flex items-baseline justify-between gap-4 border-b border-border pb-3"
             >
-              <span className="text-lg font-medium">{lang.name}</span>
+              <span className="flex items-center gap-1.5 text-lg font-medium">
+                {lang.name}
+                {lang.highlight ? (
+                  <span className="text-accent" aria-label="Proficiência alta">
+                    ★
+                  </span>
+                ) : null}
+              </span>
               <span className="text-sm text-muted">{lang.level}</span>
             </li>
           ))}
