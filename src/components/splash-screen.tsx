@@ -76,12 +76,12 @@ export function SplashScreen({ locale }: { locale: string }) {
     const pause = 250;
     let i = 0;
     let timer: ReturnType<typeof setTimeout> = setTimeout(function tick() {
+      i += 1;
       setIndex(i);
       if (i >= sequence.length - 1) {
         setTimeout(finish, pause + 1000);
         return;
       }
-      i += 1;
       timer = setTimeout(tick, step);
     }, step);
 
