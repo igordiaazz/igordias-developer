@@ -104,7 +104,7 @@ export function ProjectCard({
               href={item.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white transition-opacity hover:opacity-80"
+              className="text-foreground transition-opacity hover:opacity-80"
             >
               {labels.code} ↗
             </a>
