@@ -43,7 +43,7 @@ export default async function RootLayout({
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <LazyMotion features={domAnimation} strict>
           <ThemeProvider>{children}</ThemeProvider>
-          <SplashScreen />
+          <SplashScreen locale={current} />
         </LazyMotion>
       </body>
     </html>

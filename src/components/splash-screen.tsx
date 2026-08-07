@@ -20,7 +20,7 @@ function useCjkFont(active: boolean) {
   }, [active]);
 }
 
-export function SplashScreen() {
+export function SplashScreen({ locale }: { locale: string }) {
   const reduce = useReducedMotion();
   const [hidden, setHidden] = useState(false);
   useCjkFont(!hidden);
@@ -29,6 +29,8 @@ export function SplashScreen() {
   const finishedRef = useRef(false);
 
   const sequence = useMemo(() => {
+    const native = locale === "pt" ? "Olá" : "Hello";
+    const foreign = locale === "pt" ? "Hello" : "Olá";
     const middle = [
       "Hola",
       "Bonjour",
@@ -36,13 +38,14 @@ export function SplashScreen() {
       "你好",
       "こんにちは",
       "안녕하세요",
+      foreign,
     ];
     for (let i = middle.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [middle[i], middle[j]] = [middle[j], middle[i]];
     }
-    return ["Olá", "Hello", ...middle, "Привет"];
-  }, []);
+    return [native, ...middle, "Привет"];
+  }, [locale]);
 
   useEffect(() => {
     if (sessionStorage.getItem(FLAG)) {
