@@ -70,7 +70,7 @@ export function About({
             className="rounded-2xl border border-border bg-card px-8 py-10 text-center shadow-xl"
           >
             <p className="text-3xl font-semibold text-foreground">
-              {locale === "en" ? "Hello !" : "Oi :)"}
+              {locale === "en" ? "Hello !" : "Oi !"}
             </p>
             <button
               onClick={() => setShowPopup(false)}
