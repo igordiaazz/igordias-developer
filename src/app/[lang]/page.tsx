@@ -30,7 +30,7 @@ export default async function Home() {
       />
       <main className="pb-24 sm:pb-0">
         <Hero hero={dict.hero} locale={locale} />
-        <About about={dict.about} />
+        <About about={dict.about} locale={locale} />
         <Skills
           title={dict.experience.skillsTitle}
           categories={skillCategories.map((category) => ({
