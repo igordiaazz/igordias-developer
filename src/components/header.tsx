@@ -16,7 +16,6 @@ import {
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleToggle } from "@/components/locale-toggle";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { Locale } from "@/i18n/routing";
 
 export function Header({
   nav,
@@ -25,7 +24,6 @@ export function Header({
   skillsLabel,
   languagesLabel,
   backToTopLabel,
-  locale,
 }: {
   nav: Dictionary["nav"];
   themeLabel: string;
@@ -33,13 +31,12 @@ export function Header({
   skillsLabel?: string;
   languagesLabel?: string;
   backToTopLabel?: string;
-  locale?: Locale;
 }) {
   const links = [
     { href: "#about", label: nav.about, icon: FaUser },
     { href: "#projects", label: nav.projects, icon: FaFolderOpen },
     { href: "#experience", label: nav.experience, icon: FaBriefcase },
-    { href: "#contact", label: locale === "en" ? "Contact" : "Contato" },
+    { href: "#contact", label: nav.contact },
     {
       href: "/cv/igor-dias-curriculum.pdf",
       label: "Download",
@@ -54,7 +51,7 @@ export function Header({
     { href: "#skills", label: skillsLabel ?? "Skills", icon: FiCode },
     { href: "#languages", label: languagesLabel ?? "Languages", icon: FiBookOpen },
     { href: "#projects", label: nav.projects, icon: FiFolder },
-    { href: "#contact", label: "Contact", icon: FiMail },
+    { href: "#contact", label: nav.contact, icon: FiMail },
   ];
 
   return (

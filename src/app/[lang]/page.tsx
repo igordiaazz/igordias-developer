@@ -26,10 +26,9 @@ export default async function Home() {
         skillsLabel={dict.experience.skillsTitle}
         languagesLabel={dict.languages.title}
         backToTopLabel={dict.footer.backToTop}
-        locale={locale}
       />
       <main className="pb-24 sm:pb-0">
-        <Hero hero={dict.hero} locale={locale} />
+        <Hero hero={dict.hero} />
         <About about={dict.about} locale={locale} />
         <Skills
           title={dict.experience.skillsTitle}

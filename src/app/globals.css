@@ -50,6 +50,12 @@ body {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .shine {
+    animation: none;
+  }
+}
+
 @keyframes shine {
   0% {
     left: -60%;

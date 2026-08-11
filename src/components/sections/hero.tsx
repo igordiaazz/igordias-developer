@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { m, useReducedMotion } from "motion/react";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { Locale } from "@/i18n/routing";
 import { useTheme } from "@/components/theme-provider";
 
 const Particles = dynamic(
@@ -14,10 +13,8 @@ const Particles = dynamic(
 
 export function Hero({
   hero,
-  locale,
 }: {
   hero: Dictionary["hero"];
-  locale: Locale;
 }) {
   const reduce = useReducedMotion();
   const { theme } = useTheme();
@@ -65,14 +62,14 @@ export function Hero({
         >
           <a
             href="#contact"
-            aria-label={locale === "en" ? "Contact" : "Contato"}
+            aria-label={hero.ctaSecondary}
             className={`inline-flex h-11 items-center rounded-full border border-border px-5 text-sm font-medium transition-colors ${
               mounted && theme === "light"
                 ? "bg-black text-white hover:bg-black/90"
                 : "bg-white text-black hover:bg-white/90"
             }`}
           >
-            {locale === "en" ? "Contact" : "Contato"}
+            {hero.ctaSecondary}
           </a>
           <a
             href="/cv/igor-dias-curriculum.pdf"
@@ -80,7 +77,7 @@ export function Hero({
             aria-label={hero.ctaCv}
             className="inline-flex h-11 items-center rounded-full border border-border bg-background/40 px-5 backdrop-blur-md text-sm font-medium transition-colors hover:bg-card"
           >
-            Download
+            {hero.ctaCv}
           </a>
         </m.div>
       </div>
