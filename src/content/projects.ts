@@ -30,7 +30,24 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://first-kodes.vercel.app/",
     image: "/projects/first-kodes.webp",
-    featured: true,
+  },
+  {
+    slug: "umour",
+    title: "Track de Humor - Umour",
+    description: {
+      pt: "App web de bem-estar para registrar múltiplos momentos de humor por dia e visualizar a média diária em um calendário mensal colorido por humor. Login com Google via Supabase e persistência em nuvem com isolamento por usuário (RLS).",
+      en: "Wellness web app to log multiple mood moments per day and view the daily average on a color-coded monthly calendar. Google sign-in via Supabase with cloud persistence isolated per user (RLS).",
+    },
+    tech: [
+      { pt: "Next.js", en: "Next.js" },
+      { pt: "TypeScript", en: "TypeScript" },
+      { pt: "React", en: "React" },
+      { pt: "Tailwind CSS", en: "Tailwind CSS" },
+      { pt: "Supabase", en: "Supabase" },
+      { pt: "Google OAuth", en: "Google OAuth" },
+    ],
+    image: "/projects/umour.webp",
+    repoUrl: "https://github.com/igordiaazz/humour-tracker-cloud",
   },
   {
     slug: "pdf-mind",

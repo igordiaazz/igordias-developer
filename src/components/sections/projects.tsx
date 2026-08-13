@@ -123,9 +123,6 @@ export function Projects({
   items,
   locale,
 }: Props) {
-  const featured = items.find((item) => item.featured);
-  const rest = items.filter((item) => !item.featured);
-
   return (
     <section
       id="projects"
@@ -135,28 +132,16 @@ export function Projects({
         {title}
       </h2>
       <p className="mt-3 max-w-xl text-muted">{subtitle}</p>
-      {featured ? (
-        <div className="mt-10">
+      <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        {items.map((item) => (
           <ProjectCard
-            item={featured}
+            key={item.slug}
+            item={item}
             locale={locale}
-            variant="featured"
             labels={{ live: viewLive, code: viewCode }}
           />
-        </div>
-      ) : null}
-      {rest.length ? (
-        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {rest.map((item) => (
-            <ProjectCard
-              key={item.slug}
-              item={item}
-              locale={locale}
-              labels={{ live: viewLive, code: viewCode }}
-            />
-          ))}
-        </div>
-      ) : null}
+        ))}
+      </div>
     </section>
   );
 }
