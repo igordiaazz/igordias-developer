@@ -34,7 +34,7 @@ export function Hero({
         color={color}
         refresh
       />
-      <div className="relative z-10 mx-auto w-full max-w-5xl">
+      <div className="relative z-10 mx-auto w-full max-w-5xl -mt-12 sm:mt-0">
         <p className="text-sm font-medium uppercase tracking-widest text-muted">
           {hero.greeting}
         </p>
@@ -70,14 +70,6 @@ export function Hero({
             }`}
           >
             {hero.ctaSecondary}
-          </a>
-          <a
-            href="/cv/igor-dias-curriculum.pdf"
-            download
-            aria-label={hero.ctaCv}
-            className="inline-flex h-11 items-center rounded-full border border-border bg-background/40 px-5 backdrop-blur-md text-sm font-medium transition-colors hover:bg-card"
-          >
-            {hero.ctaCv}
           </a>
         </m.div>
       </div>

@@ -3,10 +3,9 @@ import {
   FaUser,
   FaFolderOpen,
   FaBriefcase,
-  FaFileDownload,
 } from "react-icons/fa";
 import {
-  FiArrowUp,
+  FiHome,
   FiUser,
   FiCode,
   FiBookOpen,
@@ -35,18 +34,14 @@ export function Header({
   const links = [
     { href: "#about", label: nav.about, icon: FaUser },
     { href: "#projects", label: nav.projects, icon: FaFolderOpen },
+    { href: "#skills", label: skillsLabel ?? "Habilidades" },
+    { href: "#languages", label: languagesLabel ?? "Idiomas" },
     { href: "#experience", label: nav.experience, icon: FaBriefcase },
     { href: "#contact", label: nav.contact },
-    {
-      href: "/cv/igor-dias-curriculum.pdf",
-      label: "Download",
-      download: true,
-      icon: FaFileDownload,
-    },
   ];
 
   const dockLinks = [
-    { href: "#top", label: backToTopLabel ?? "Back to top", icon: FiArrowUp },
+    { href: "#top", label: backToTopLabel ?? "Back to top", icon: FiHome },
     { href: "#about", label: nav.about, icon: FiUser },
     { href: "#skills", label: skillsLabel ?? "Skills", icon: FiCode },
     { href: "#languages", label: languagesLabel ?? "Languages", icon: FiBookOpen },
@@ -66,7 +61,6 @@ export function Header({
               <a
                 key={link.href}
                 href={link.href}
-                {...(link.download ? { download: true } : {})}
                 className="transition-colors hover:text-foreground"
               >
                 {link.label}
@@ -80,14 +74,14 @@ export function Header({
         </div>
       </header>
 
-      <div className="fixed right-4 top-4 z-50 flex items-center gap-2 sm:hidden">
+      <div className="flex items-center justify-end gap-2 px-6 py-3 sm:hidden">
         <LocaleToggle label={langLabel} />
         <ThemeToggle label={themeLabel} />
       </div>
 
       <nav
         aria-label="Menu"
-        className="fixed bottom-4 left-1/2 z-50 flex w-fit -translate-x-1/2 items-center gap-1 rounded-2xl border border-border/60 bg-background/70 px-5 py-3 shadow-lg backdrop-blur-xl sm:hidden"
+        className="fixed bottom-4 left-1/2 z-50 flex w-fit -translate-x-1/2 items-center gap-1 rounded-2xl border border-border bg-background px-5 py-3 shadow-xl backdrop-blur-xl sm:hidden"
       >
         {dockLinks.map((link) => {
           const Icon = link.icon;

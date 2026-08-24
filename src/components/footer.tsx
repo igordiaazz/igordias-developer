@@ -14,7 +14,7 @@ export function Footer({ footer }: { footer: Dictionary["footer"] }) {
       id="contact"
       className="border-t border-border/60 scroll-mt-24"
     >
-      <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-6 px-6 py-24 pb-32 text-center sm:pb-24">
         <p className="text-lg font-medium">{footer.heading}</p>
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted">
           {socials.map((social) => {

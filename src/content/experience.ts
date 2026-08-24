@@ -24,8 +24,8 @@ export const experience: ExperienceItem[] = [
       en: "06/2026 — Present",
     },
     description: {
-      pt: "Desenvolvi aplicações web educacionais de matemática com Next.js, React e TypeScript, traduzindo conceitos lógicos complexos em soluções funcionais para os usuários finais. Construí interfaces responsivas e acessíveis com Tailwind CSS, elevando a consistência visual e a fluidez da experiência de uso da plataforma. Atuei no ciclo completo do projeto — do levantamento de requisitos com a equipe até a entrega das telas — garantindo alinhamento entre necessidade pedagógica e implementação técnica.",
-      en: "Developed educational mathematics web applications with Next.js, React, and TypeScript, translating complex logical concepts into functional solutions for end users. Built responsive and accessible interfaces with Tailwind CSS, elevating the platform's visual consistency and experience fluidity. Worked across the full project cycle — from requirements gathering with the team to screen delivery — ensuring alignment between pedagogical needs and technical implementation.",
+      pt: "Desenvolvi aplicações web educacionais de matemática com Next.js, React e TypeScript, traduzindo conceitos lógicos complexos em soluções funcionais para os usuários finais. Construí interfaces responsivas e acessíveis com Tailwind CSS, elevando a consistência visual e a fluidez da experiência de uso da plataforma. Atuei no ciclo completo do projeto, do levantamento de requisitos com a equipe até a entrega das telas, garantindo alinhamento entre necessidade pedagógica e implementação técnica.",
+      en: "Developed educational mathematics web applications with Next.js, React, and TypeScript, translating complex logical concepts into functional solutions for end users. Built responsive and accessible interfaces with Tailwind CSS, elevating the platform's visual consistency and experience fluidity. Worked across the full project cycle, from requirements gathering with the team to screen delivery, ensuring alignment between pedagogical needs and technical implementation.",
     },
   },
   {
