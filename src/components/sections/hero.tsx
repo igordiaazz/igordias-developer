@@ -34,7 +34,7 @@ export function Hero({
         color={color}
         refresh
       />
-      <div className="relative z-10 mx-auto w-full max-w-5xl -mt-12 sm:mt-0">
+      <div className="relative z-10 mx-auto w-full max-w-5xl -mt-12 -translate-y-[57%] sm:mt-0 sm:translate-y-0">
         <p className="text-sm font-medium uppercase tracking-widest text-muted">
           {hero.greeting}
         </p>
