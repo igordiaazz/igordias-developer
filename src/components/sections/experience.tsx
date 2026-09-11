@@ -1,4 +1,5 @@
 import { Section } from "@/components/section";
+import { Reveal } from "@/components/reveal";
 import type { ExperienceItem } from "@/content/experience";
 import type { Locale } from "@/i18n/routing";
 
@@ -17,8 +18,8 @@ export function Experience({ title, subtitle, items, locale, delay = 0 }: Props)
       <p className="mt-3 max-w-xl text-muted">{subtitle}</p>
 
       <ol className="mt-10 space-y-8 border-l border-border pl-6">
-        {items.map((item) => (
-          <li key={item.id} className="relative">
+        {items.map((item, index) => (
+          <Reveal key={item.id} as="li" delay={0.1 + index * 0.2} className="relative">
             <span className="absolute -left-[27px] top-2 h-2.5 w-2.5 rounded-full bg-accent" />
             <div className="flex flex-wrap items-baseline justify-between gap-x-4">
               <h3 className="text-lg font-medium">
@@ -30,7 +31,7 @@ export function Experience({ title, subtitle, items, locale, delay = 0 }: Props)
             <p className="mt-2 text-sm leading-relaxed text-muted">
               {item.description[locale]}
             </p>
-          </li>
+          </Reveal>
         ))}
       </ol>
     </Section>

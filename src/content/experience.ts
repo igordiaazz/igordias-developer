@@ -74,16 +74,19 @@ export type SkillCategory = {
 };
 
 export const skillCategories: SkillCategory[] = [
-  { id: "languages", items: ["C++", "Python"] },
-  { id: "frontend", items: ["Next.js", "HTML5", "CSS3"] },
-  { id: "backend", items: ["FastAPI", "Supabase", "Google Cloud Platform"] },
+  { id: "languages", items: ["C++", "Python", "TypeScript", "JavaScript"] },
+  {
+    id: "frontend",
+    items: ["Next.js", "React", "TailwindCSS", "HTML5", "CSS3"],
+  },
+  { id: "backend", items: ["Node.js", "FastAPI", "Supabase", "Google Cloud Platform"] },
   {
     id: "data-ai",
     items: ["PyTorch", "TensorFlow", "Pandas", "Scikit-Learn", "OpenRouter"],
   },
   {
     id: "data-storage",
-    items: ["SQLite", "SQL", "MongoDB"],
+    items: ["PostgreSQL", "SQLite", "SQL", "MongoDB"],
   },
   { id: "tools", items: ["Docker", "Git"] },
 ];

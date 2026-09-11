@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Project } from "@/content/projects";
 import type { Locale } from "@/i18n/routing";
 import { Section } from "@/components/section";
+import { Reveal } from "@/components/reveal";
 
 type Props = {
   title: string;
@@ -133,13 +134,14 @@ export function Projects({
       </h2>
       <p className="mt-3 max-w-xl text-muted">{subtitle}</p>
       <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
-        {items.map((item) => (
-          <ProjectCard
-            key={item.slug}
-            item={item}
-            locale={locale}
-            labels={{ live: viewLive, code: viewCode }}
-          />
+        {items.map((item, index) => (
+          <Reveal key={item.slug} as="article" delay={0.1 + index * 0.15}>
+            <ProjectCard
+              item={item}
+              locale={locale}
+              labels={{ live: viewLive, code: viewCode }}
+            />
+          </Reveal>
         ))}
       </div>
     </Section>
