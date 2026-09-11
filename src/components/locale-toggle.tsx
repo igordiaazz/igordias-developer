@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { locales } from "@/i18n/routing";
 
 export function LocaleToggle({ label }: { label: string }) {
   const pathname = usePathname();
+  const router = useRouter();
   const segments = pathname.split("/");
   const current = segments[1];
 
@@ -23,6 +24,12 @@ export function LocaleToggle({ label }: { label: string }) {
             key={locale}
             href={pathFor(locale)}
             aria-current={active ? "true" : undefined}
+            onClick={(e) => {
+              if (!active) {
+                e.preventDefault();
+                router.replace(pathFor(locale), { scroll: false });
+              }
+            }}
             className={`px-1.5 py-1 uppercase transition-colors ${
               active
                 ? "text-foreground"
