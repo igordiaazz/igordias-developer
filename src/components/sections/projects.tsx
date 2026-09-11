@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Project } from "@/content/projects";
 import type { Locale } from "@/i18n/routing";
+import { Section } from "@/components/section";
 
 type Props = {
   title: string;
@@ -9,6 +10,7 @@ type Props = {
   viewCode: string;
   items: Project[];
   locale: Locale;
+  delay?: number;
 };
 
 export function ProjectCard({
@@ -122,12 +124,10 @@ export function Projects({
   viewCode,
   items,
   locale,
+  delay = 0,
 }: Props) {
   return (
-    <section
-      id="projects"
-      className="mx-auto w-full max-w-5xl scroll-mt-24 px-6 py-24 sm:py-32"
-    >
+    <Section id="projects" delay={delay}>
       <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
         {title}
       </h2>
@@ -142,6 +142,6 @@ export function Projects({
           />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

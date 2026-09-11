@@ -10,11 +10,12 @@ type SkillCategory = {
 type Props = {
   title: string;
   categories: SkillCategory[];
+  delay?: number;
 };
 
-export function Skills({ title, categories }: Props) {
+export function Skills({ title, categories, delay = 0 }: Props) {
   return (
-    <Section id="skills">
+    <Section id="skills" delay={delay}>
       <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
       <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((category) => (

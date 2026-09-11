@@ -39,8 +39,9 @@ export default async function Home() {
                 category.id
               ] ?? category.id,
           }))}
+          delay={0.1}
         />
-        <Languages title={dict.languages.title} items={dict.languages.items} />
+        <Languages title={dict.languages.title} items={dict.languages.items} delay={0.2} />
         <Projects
           title={dict.projects.title}
           subtitle={dict.projects.subtitle}
@@ -48,12 +49,14 @@ export default async function Home() {
           viewCode={dict.projects.viewCode}
           items={projects}
           locale={locale}
+          delay={0.3}
         />
         <Experience
           title={dict.experience.title}
           subtitle={dict.experience.subtitle}
           items={experience}
           locale={locale}
+          delay={0.4}
         />
       </main>
       <Reveal>
