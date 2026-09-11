@@ -24,7 +24,7 @@ export function Reveal({ children, className, delay = 0, as = "div" }: RevealPro
       className={className}
       initial={reduce ? false : { opacity: 0, y: 24 }}
       animate={inView || reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
     </MotionComponent>

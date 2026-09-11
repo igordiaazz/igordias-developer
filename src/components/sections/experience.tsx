@@ -19,7 +19,7 @@ export function Experience({ title, subtitle, items, locale, delay = 0 }: Props)
 
       <ol className="mt-10 space-y-8 border-l border-border pl-6">
         {items.map((item, index) => (
-          <Reveal key={item.id} as="li" delay={0.1 + index * 0.2} className="relative">
+          <Reveal key={item.id} as="li" delay={0.05 + index * 0.12} className="relative">
             <span className="absolute -left-[27px] top-2 h-2.5 w-2.5 rounded-full bg-accent" />
             <div className="flex flex-wrap items-baseline justify-between gap-x-4">
               <h3 className="text-lg font-medium">
