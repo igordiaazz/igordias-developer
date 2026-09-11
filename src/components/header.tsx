@@ -67,16 +67,20 @@ export function Header({
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3 rounded-full border border-border/60 bg-background/70 px-3 py-1.5 shadow-lg backdrop-blur-xl">
             <LocaleToggle label={langLabel} />
+            <div className="h-4 w-px bg-border" />
             <ThemeToggle label={themeLabel} />
           </div>
         </div>
       </header>
 
-      <div className="flex items-center justify-end gap-2 px-6 py-3 sm:hidden">
-        <LocaleToggle label={langLabel} />
-        <ThemeToggle label={themeLabel} />
+      <div className="flex items-center justify-end px-6 py-3 sm:hidden">
+        <div className="flex items-center gap-3 rounded-full border border-border/60 bg-background/70 px-3 py-1.5 shadow-lg backdrop-blur-xl">
+          <LocaleToggle label={langLabel} />
+          <div className="h-4 w-px bg-border" />
+          <ThemeToggle label={themeLabel} />
+        </div>
       </div>
 
       <nav

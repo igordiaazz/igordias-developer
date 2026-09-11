@@ -15,10 +15,7 @@ export function LocaleToggle({ label }: { label: string }) {
   }
 
   return (
-    <div
-      className="flex items-center gap-1 rounded-full border border-border/60 bg-background/70 p-1 text-sm shadow-lg backdrop-blur-xl"
-      aria-label={label}
-    >
+    <nav className="flex items-center gap-2 text-sm" aria-label={label}>
       {locales.map((locale) => {
         const active = locale === current;
         return (
@@ -26,9 +23,9 @@ export function LocaleToggle({ label }: { label: string }) {
             key={locale}
             href={pathFor(locale)}
             aria-current={active ? "true" : undefined}
-            className={`rounded-full px-2.5 py-1 uppercase transition-colors ${
+            className={`px-1.5 py-1 uppercase transition-colors ${
               active
-                ? "bg-foreground text-background"
+                ? "text-foreground"
                 : "text-muted hover:text-foreground"
             }`}
           >
@@ -36,6 +33,6 @@ export function LocaleToggle({ label }: { label: string }) {
           </Link>
         );
       })}
-    </div>
+    </nav>
   );
 }
