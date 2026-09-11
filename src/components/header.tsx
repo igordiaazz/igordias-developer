@@ -81,7 +81,7 @@ export function Header({
 
       <nav
         aria-label="Menu"
-        className="fixed bottom-4 left-1/2 z-50 flex w-fit -translate-x-1/2 items-center gap-1 rounded-2xl border border-border bg-background px-5 py-3 shadow-xl backdrop-blur-xl sm:hidden"
+        className="fixed bottom-4 left-1/2 z-50 flex w-fit -translate-x-1/2 items-center gap-1 rounded-full border border-border bg-background/30 px-5 py-3 shadow-xl backdrop-blur-[20px] sm:hidden"
       >
         {dockLinks.map((link) => {
           const Icon = link.icon;
