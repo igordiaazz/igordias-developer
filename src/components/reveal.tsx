@@ -8,15 +8,18 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  as?: string;
 };
 
-export function Reveal({ children, className, delay = 0 }: RevealProps) {
+export function Reveal({ children, className, delay = 0, as = "div" }: RevealProps) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
+  const MotionComponent = (m as any)[as] || m.div;
+
   return (
-    <m.div
+    <MotionComponent
       ref={ref}
       className={className}
       initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -24,6 +27,6 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
-    </m.div>
+    </MotionComponent>
   );
 }

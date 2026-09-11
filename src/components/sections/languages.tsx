@@ -1,6 +1,7 @@
 "use client";
 
 import { Section } from "@/components/section";
+import { Reveal } from "@/components/reveal";
 import dynamic from "next/dynamic";
 
 const Cobe = dynamic(
@@ -29,11 +30,8 @@ export function Languages({ title, items, delay = 0 }: Props) {
           <Cobe variant="default" markers={[]} />
         </div>
         <ul className="space-y-4">
-          {items.map((lang) => (
-            <li
-              key={lang.name}
-              className="flex items-baseline justify-between gap-4 border-b border-border pb-3"
-            >
+          {items.map((lang, index) => (
+            <Reveal key={lang.name} as="li" delay={0.1 + index * 0.1} className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
               <span className="flex items-center gap-1.5 text-lg font-medium">
                 {lang.name}
                 {lang.highlight ? (
@@ -43,7 +41,7 @@ export function Languages({ title, items, delay = 0 }: Props) {
                 ) : null}
               </span>
               <span className="text-sm text-muted">{lang.level}</span>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>
