@@ -53,8 +53,8 @@ export const projects: Project[] = [
     slug: "pdf-mind",
     title: "PDF Mind",
     description: {
-      pt: "Sistema RAG em microsserviços para extração de dados de documentos.",
-      en: "RAG microservices system for document data extraction.",
+      pt: "Sistema RAG em microsserviços para extração e compreensão de dados de documentos PDF. Recebe documentos em PDF, faz chunking semântico e indexação vetorial, permitindo buscas e respostas contextuais com base no conteúdo extraído.",
+      en: "RAG microservices system for extracting and understanding data from PDF documents. Receives PDF files, performs semantic chunking and vector indexing, enabling contextual search and question answering based on the extracted content.",
     },
     tech: [
       { pt: "Python", en: "Python" },
