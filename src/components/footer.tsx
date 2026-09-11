@@ -34,6 +34,7 @@ export function Footer({ footer }: { footer: Dictionary["footer"] }) {
           })}
         </div>
         <BackToTop label={footer.backToTop} />
+        <p className="text-sm text-muted">{footer.copyright}</p>
       </div>
     </footer>
   );
