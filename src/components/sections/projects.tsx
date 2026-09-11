@@ -29,7 +29,7 @@ export function ProjectCard({
 
   return (
     <article
-      className={`group flex overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+      className={`group flex h-full overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
         isFeatured ? "flex-col md:flex-row" : "flex-col"
       }`}
     >
@@ -135,7 +135,7 @@ export function Projects({
       <p className="mt-3 max-w-xl text-muted">{subtitle}</p>
       <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
         {items.map((item, index) => (
-          <Reveal key={item.slug} as="article" delay={0.05 + index * 0.1}>
+          <Reveal key={item.slug} as="article" delay={0.05 + index * 0.1} className="h-full">
             <ProjectCard
               item={item}
               locale={locale}
