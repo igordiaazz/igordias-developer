@@ -31,7 +31,7 @@ export function Languages({ title, items, delay = 0 }: Props) {
         </div>
         <ul className="space-y-4">
           {items.map((lang, index) => (
-            <Reveal key={lang.name} as="li" delay={0.1 + index * 0.1} className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
+            <Reveal key={lang.name} as="li" delay={0.05 + index * 0.08} className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
               <span className="flex items-center gap-1.5 text-lg font-medium">
                 {lang.name}
                 {lang.highlight ? (

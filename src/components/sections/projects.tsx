@@ -135,7 +135,7 @@ export function Projects({
       <p className="mt-3 max-w-xl text-muted">{subtitle}</p>
       <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
         {items.map((item, index) => (
-          <Reveal key={item.slug} as="article" delay={0.1 + index * 0.15}>
+          <Reveal key={item.slug} as="article" delay={0.05 + index * 0.1}>
             <ProjectCard
               item={item}
               locale={locale}

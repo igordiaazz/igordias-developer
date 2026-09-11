@@ -33,7 +33,7 @@ export function Skills({ title, categories, delay = 0 }: Props) {
                   <Reveal
                     key={item}
                     as="li"
-                    delay={0.1 + (globalStart + itemIndex) * 0.05}
+                    delay={0.05 + (globalStart + itemIndex) * 0.04}
                     className="flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-sm text-muted"
                   >
                     <TechIcon name={item} className="h-4 w-4" />
