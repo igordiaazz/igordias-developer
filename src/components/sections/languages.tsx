@@ -17,11 +17,12 @@ type Language = {
 type Props = {
   title: string;
   items: Language[];
+  delay?: number;
 };
 
-export function Languages({ title, items }: Props) {
+export function Languages({ title, items, delay = 0 }: Props) {
   return (
-    <Section id="languages">
+    <Section id="languages" delay={delay}>
       <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
       <div className="mt-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2">
         <div className="mx-auto w-full max-w-sm">

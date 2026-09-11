@@ -7,11 +7,12 @@ type Props = {
   subtitle: string;
   items: ExperienceItem[];
   locale: Locale;
+  delay?: number;
 };
 
-export function Experience({ title, subtitle, items, locale }: Props) {
+export function Experience({ title, subtitle, items, locale, delay = 0 }: Props) {
   return (
-    <Section id="experience">
+    <Section id="experience" delay={delay}>
       <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
       <p className="mt-3 max-w-xl text-muted">{subtitle}</p>
 

@@ -58,8 +58,8 @@ export const experience: ExperienceItem[] = [
       en: "Self-employed",
     },
     period: {
-      pt: "2021 — 2025",
-      en: "2021 — 2025",
+      pt: "2021 — presente",
+      en: "2021 — present",
     },
     description: {
       pt: "Alta taxa de resolução no primeiro contato, unindo agilidade técnica com excelência no atendimento ao usuário final. Atendimento a mais de 30 clientes corporativos e presenciais, com levantamento de requisitos operacionais e identificação de falhas sistêmicas.",
@@ -74,19 +74,16 @@ export type SkillCategory = {
 };
 
 export const skillCategories: SkillCategory[] = [
-  { id: "languages", items: ["C++", "Python", "TypeScript", "JavaScript"] },
-  {
-    id: "frontend",
-    items: ["Next.js", "React", "TailwindCSS", "HTML5", "CSS3"],
-  },
-  { id: "backend", items: ["Node.js", "FastAPI", "Supabase", "Google Cloud Platform"] },
+  { id: "languages", items: ["C++", "Python"] },
+  { id: "frontend", items: ["Next.js", "HTML5", "CSS3"] },
+  { id: "backend", items: ["FastAPI", "Supabase", "Google Cloud Platform"] },
   {
     id: "data-ai",
     items: ["PyTorch", "TensorFlow", "Pandas", "Scikit-Learn", "OpenRouter"],
   },
   {
     id: "data-storage",
-    items: ["PostgreSQL", "SQLite", "SQL", "MongoDB"],
+    items: ["SQLite", "SQL", "MongoDB"],
   },
   { id: "tools", items: ["Docker", "Git"] },
 ];

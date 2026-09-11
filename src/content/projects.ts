@@ -53,16 +53,10 @@ export const projects: Project[] = [
     slug: "pdf-mind",
     title: "PDF Mind",
     description: {
-      pt: "Sistema RAG em microsserviços para extração de dados de documentos. Front-end React/NestJS/PostgreSQL e inferência BERT isolada em FastAPI (Python), orquestrado com Docker.",
-      en: "RAG microservices system for document data extraction. React/NestJS/PostgreSQL front-end with isolated BERT inference in FastAPI (Python), orchestrated via Docker.",
+      pt: "Sistema RAG em microsserviços para extração de dados de documentos.",
+      en: "RAG microservices system for document data extraction.",
     },
     tech: [
-      { pt: "React", en: "React" },
-      { pt: "TypeScript", en: "TypeScript" },
-      { pt: "Tailwind CSS", en: "Tailwind CSS" },
-      { pt: "NestJS", en: "NestJS" },
-      { pt: "Node.js", en: "Node.js" },
-      { pt: "PostgreSQL", en: "PostgreSQL" },
       { pt: "Python", en: "Python" },
       { pt: "FastAPI", en: "FastAPI" },
       { pt: "Hugging Face", en: "Hugging Face" },
