@@ -67,9 +67,8 @@ export function Header({
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-3 rounded-full border border-border/60 bg-background/70 px-3 py-1.5 shadow-lg backdrop-blur-xl">
+          <div className="flex items-center gap-3">
             <LocaleToggle label={langLabel} />
-            <div className="h-4 w-px bg-border" />
             <ThemeToggle label={themeLabel} />
           </div>
         </div>
