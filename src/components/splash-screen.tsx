@@ -26,6 +26,7 @@ export function SplashScreen({ locale }: { locale: string }) {
   useCjkFont(!hidden);
   const [done, setDone] = useState(false);
   const [index, setIndex] = useState(0);
+  const [black, setBlack] = useState(false);
   const finishedRef = useRef(false);
 
   const sequence = useMemo(() => {
@@ -79,7 +80,8 @@ export function SplashScreen({ locale }: { locale: string }) {
       i += 1;
       setIndex(i);
       if (i >= sequence.length - 1) {
-        setTimeout(finish, pause + 1000);
+        setBlack(true);
+        setTimeout(finish, 1000);
         return;
       }
       timer = setTimeout(tick, step);
@@ -95,13 +97,13 @@ export function SplashScreen({ locale }: { locale: string }) {
 
   return (
     <m.div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
+      className={`fixed inset-0 z-[100] flex items-center justify-center ${black ? "bg-black" : "bg-background"}`}
       initial={{ opacity: 1 }}
       animate={{ opacity: done ? 0 : 1 }}
       transition={{ duration: 1.2 }}
     >
       <span
-        className="text-5xl font-semibold tracking-tight text-foreground sm:text-7xl"
+        className={`text-5xl font-semibold tracking-tight sm:text-7xl ${black ? "text-white" : "text-foreground"}`}
         style={{
           fontFamily:
             '"Noto Sans", "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", sans-serif',
