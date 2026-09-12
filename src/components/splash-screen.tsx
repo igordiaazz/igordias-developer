@@ -27,6 +27,7 @@ export function SplashScreen({ locale }: { locale: string }) {
   const [done, setDone] = useState(false);
   const [index, setIndex] = useState(0);
   const [black, setBlack] = useState(false);
+  const [textHidden, setTextHidden] = useState(false);
   const finishedRef = useRef(false);
 
   const sequence = useMemo(() => {
@@ -81,6 +82,7 @@ export function SplashScreen({ locale }: { locale: string }) {
       setIndex(i);
       if (i >= sequence.length - 1) {
         setBlack(true);
+        setTimeout(() => setTextHidden(true), 200);
         setTimeout(finish, 1000);
         return;
       }
@@ -102,15 +104,17 @@ export function SplashScreen({ locale }: { locale: string }) {
       animate={{ opacity: done ? 0 : 1 }}
       transition={{ duration: 1.2 }}
     >
-      <span
-        className={`text-5xl font-semibold tracking-tight sm:text-7xl ${black ? "text-white" : "text-foreground"}`}
-        style={{
-          fontFamily:
-            '"Noto Sans", "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", sans-serif',
-        }}
-      >
-        {sequence[index]}
-      </span>
+      {!textHidden && (
+        <span
+          className={`text-5xl font-semibold tracking-tight sm:text-7xl ${black ? "text-white" : "text-foreground"}`}
+          style={{
+            fontFamily:
+              '"Noto Sans", "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", sans-serif',
+          }}
+        >
+          {sequence[index]}
+        </span>
+      )}
     </m.div>
   );
 }
