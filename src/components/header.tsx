@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   FaUser,
@@ -261,6 +261,14 @@ export function Header({
 
   const menuOpen = menuStatus === "open" || menuStatus === "closing";
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [menuOpen]);
+
   const links = [
     { href: "#about", label: nav.about, icon: FaUser },
     { href: "#projects", label: nav.projects, icon: FaFolderOpen },
@@ -311,9 +319,12 @@ export function Header({
       </header>
 
       <header className="sticky top-0 z-50 flex h-14 items-center justify-between border-b border-border/60 bg-background/40 px-4 backdrop-blur-xl sm:hidden">
-        <Link href="#top" className={`flex items-center ${isDark ? "navbar-logo-dark" : "navbar-logo-light"}`}>
-          <NavbarLogo className="h-6 w-6" />
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link href="#top" className={`flex items-center ${isDark ? "navbar-logo-dark" : "navbar-logo-light"}`}>
+            <NavbarLogo className="h-6 w-6" />
+          </Link>
+          <span className="text-sm font-semibold tracking-tight text-foreground">Igor Developer</span>
+        </div>
         <button
           onClick={toggleMenu}
           aria-label="Toggle menu"
