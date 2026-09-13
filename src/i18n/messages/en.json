@@ -4,7 +4,8 @@
     "description": "Fullstack developer focused on fast, accessible and well-designed web products."
   },
   "nav": {
-    "about": "About",
+    "home": "Home",
+    "about": "About me",
     "projects": "Projects",
     "experience": "Experience",
     "cv": "Download CV",
@@ -22,9 +23,29 @@
   "about": {
     "title": "About me",
     "body": [
-      "I'm a Full-Stack Developer and an undergraduate student pursuing a Bachelor's degree in Information Technology at UFRN, with a solid technical foundation built at IFRN and hands-on experience across the full application lifecycle.",
-      "I focus on building scalable architectures using Node.js and FastAPI, connecting robust back-ends to modern interfaces with React and TypeScript. My practical experience includes developing microservices orchestrated via Docker and prototyping intelligent solutions based on Artificial Intelligence, with an emphasis on RAG and Computer Vision.",
-      "I bring to software development a strong analytical ability to solve complex problems, a skill shaped and deepened by my previous roles in IT support and infrastructure."
+      [
+        "I'm a ",
+        { "text": "Full-Stack Developer", "highlight": true },
+        " and an undergraduate student pursuing a Bachelor's degree in Information Technology at UFRN, with a solid technical foundation built at IFRN and hands-on experience across the full application lifecycle."
+      ],
+      [
+        "I focus on building scalable architectures using ",
+        { "text": "Node.js", "highlight": true },
+        " and ",
+        { "text": "FastAPI", "highlight": true },
+        ", connecting robust back-ends to modern interfaces with ",
+        { "text": "React", "highlight": true },
+        " and ",
+        { "text": "TypeScript", "highlight": true },
+        ". My practical experience includes developing microservices orchestrated via Docker and prototyping intelligent solutions based on ",
+        { "text": "Artificial Intelligence", "highlight": true },
+        ", with an emphasis on RAG and Computer Vision."
+      ],
+      [
+        "I bring to software development strong analytical skills for ",
+        { "text": "solving complex problems", "highlight": true },
+        ", abilities shaped and deepened by my previous roles in IT support and infrastructure."
+      ]
     ]
   },
   "projects": {

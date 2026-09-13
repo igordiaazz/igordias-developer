@@ -28,7 +28,17 @@ export function About({ about }: { about: Dictionary["about"] }) {
         </div>
         <div className="max-w-2xl space-y-4 text-lg leading-relaxed text-muted text-justify">
           {about.body.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
+            <p key={index}>
+              {(Array.isArray(paragraph) ? paragraph : [paragraph]).map((part, i) =>
+                typeof part === "string" ? (
+                  <span key={i}>{part}</span>
+                ) : (
+                  <span key={i} className="highlight-text">
+                    {part.text}
+                  </span>
+                )
+              )}
+            </p>
           ))}
         </div>
       </div>

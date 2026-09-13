@@ -4,7 +4,8 @@
     "description": "Desenvolvedor fullstack focado em produtos web rápidos, acessíveis e bem desenhados."
   },
   "nav": {
-    "about": "Sobre",
+    "home": "Home",
+    "about": "Sobre mim",
     "projects": "Projetos",
     "experience": "Experiência",
     "cv": "Baixar Currículo",
@@ -22,9 +23,29 @@
   "about": {
     "title": "Sobre mim",
     "body": [
-      "Sou Desenvolvedor Full-Stack e graduando em Bacharelado em Tecnologia da Informação pela UFRN, com sólida base técnica construída no IFRN e experiência prática em todo o ciclo de vida de aplicações.",
-      "Tenho foco na construção de arquiteturas escaláveis utilizando Node.js e FastAPI, conectando back-ends robustos a interfaces modernas com React e TypeScript. Minha vivência prática inclui o desenvolvimento de microsserviços orquestrados via Docker e a prototipagem de soluções inteligentes baseadas em Inteligência Artificial, com ênfase em RAG e Visão Computacional.",
-      "Trago para o desenvolvimento de software uma forte capacidade analítica na resolução de problemas complexos, habilidade que foi moldada e aprofundada pelas minhas atuações anteriores em suporte e infraestrutura de TI."
+      [
+        "Sou ",
+        { "text": "Desenvolvedor Full-Stack", "highlight": true },
+        " e graduando em Bacharelado em Tecnologia da Informação pela UFRN, com sólida base técnica construída no IFRN e experiência prática em todo o ciclo de vida de aplicações."
+      ],
+      [
+        "Tenho foco na construção de arquiteturas escaláveis utilizando ",
+        { "text": "Node.js", "highlight": true },
+        " e ",
+        { "text": "FastAPI", "highlight": true },
+        ", conectando back-ends robustos a interfaces modernas com ",
+        { "text": "React", "highlight": true },
+        " e ",
+        { "text": "TypeScript", "highlight": true },
+        ". Minha vivência prática inclui o desenvolvimento de microsserviços orquestrados via Docker e a prototipagem de soluções inteligentes baseadas em ",
+        { "text": "Inteligência Artificial", "highlight": true },
+        ", com ênfase em RAG e Visão Computacional."
+      ],
+      [
+        "Trago para o desenvolvimento de software uma forte capacidade analítica na ",
+        { "text": "resolução de problemas complexos", "highlight": true },
+        ", habilidade que foi moldada e aprofundada pelas minhas atuações anteriores em suporte e infraestrutura de TI."
+      ]
     ]
   },
   "projects": {
