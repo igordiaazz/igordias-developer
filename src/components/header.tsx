@@ -32,6 +32,7 @@ function NavbarLogo({ className }: { className: string }) {
       width="24"
       height="24"
       preserveAspectRatio="xMidYMid meet"
+      shape-rendering="crispEdges"
       aria-hidden="true"
     >
       <g fill="currentColor">
