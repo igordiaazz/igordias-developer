@@ -121,12 +121,20 @@ body {
 }
 
 .highlight-text {
-  color: #1d1d1f;
+  color: #ffffff;
   background: transparent;
 }
 
 .dark .highlight-text {
-  color: #a1a1aa;
+  color: #ffffff;
+}
+
+.navbar-logo-light {
+  color: #1d1d1f;
+}
+
+.navbar-logo-dark {
+  color: #ffffff;
 }
 
 .shine {
