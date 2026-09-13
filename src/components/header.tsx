@@ -98,7 +98,7 @@ export function Header({
 
       <header className="sticky top-0 z-50 flex h-14 items-center justify-between border-b border-border/60 bg-background/40 px-4 backdrop-blur-xl sm:hidden">
         <Link href="#top" className={`flex items-center ${isDark ? "navbar-logo-dark" : "navbar-logo-light"}`}>
-          <img src={navbarLogo} alt="Logo" className="navbar-logo h-6 w-6" />
+          <img src={navbarLogo} alt="Logo" className="h-6 w-6" />
         </Link>
         <button
           onClick={toggleMenu}
