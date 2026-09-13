@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import {
   FaUser,
@@ -5,16 +8,20 @@ import {
   FaBriefcase,
 } from "react-icons/fa";
 import {
+  FiMenu,
   FiHome,
   FiUser,
   FiCode,
   FiBookOpen,
   FiFolder,
   FiMail,
+  FiX,
 } from "react-icons/fi";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleToggle } from "@/components/locale-toggle";
 import type { Dictionary } from "@/i18n/dictionaries";
+
+type MenuStatus = "closed" | "open" | "closing";
 
 export function Header({
   nav,
@@ -31,6 +38,10 @@ export function Header({
   languagesLabel?: string;
   backToTopLabel?: string;
 }) {
+  const [menuStatus, setMenuStatus] = useState<MenuStatus>("closed");
+
+  const menuOpen = menuStatus === "open" || menuStatus === "closing";
+
   const links = [
     { href: "#about", label: nav.about, icon: FaUser },
     { href: "#projects", label: nav.projects, icon: FaFolderOpen },
@@ -40,14 +51,20 @@ export function Header({
     { href: "#contact", label: nav.contact },
   ];
 
-  const dockLinks = [
-    { href: "#top", label: backToTopLabel ?? "Back to top", icon: FiHome },
-    { href: "#about", label: nav.about, icon: FiUser },
-    { href: "#skills", label: skillsLabel ?? "Skills", icon: FiCode },
-    { href: "#languages", label: languagesLabel ?? "Languages", icon: FiBookOpen },
-    { href: "#projects", label: nav.projects, icon: FiFolder },
-    { href: "#contact", label: nav.contact, icon: FiMail },
+  const menuLinks = [
+    { href: "#top", label: nav.home ?? backToTopLabel ?? "Home" },
+    { href: "#about", label: nav.about },
+    { href: "#skills", label: skillsLabel ?? "Habilidades" },
+    { href: "#languages", label: languagesLabel ?? "Idiomas" },
+    { href: "#projects", label: nav.projects },
+    { href: "#experience", label: nav.experience },
+    { href: "#contact", label: nav.contact },
   ];
+
+  const openMenu = () => setMenuStatus("open");
+  const closeMenu = () => setMenuStatus("closing");
+  const toggleMenu = () =>
+    menuStatus === "closed" ? openMenu() : closeMenu();
 
   return (
     <>
@@ -74,32 +91,70 @@ export function Header({
         </div>
       </header>
 
-      <div className="flex items-center justify-end px-6 py-3 sm:hidden">
-        <div className="flex items-center gap-3 rounded-full border border-border/60 bg-background/70 px-3 py-1.5 shadow-lg backdrop-blur-xl">
-          <LocaleToggle label={langLabel} />
-          <div className="h-4 w-px bg-border" />
-          <ThemeToggle label={themeLabel} />
-        </div>
-      </div>
+      <header className="sticky top-0 z-50 flex h-14 items-center justify-between border-b border-border/60 bg-background/40 px-4 backdrop-blur-xl sm:hidden">
+        <Link href="#top" className="text-sm font-semibold tracking-tight">
+          Igor Dias
+        </Link>
+        <button
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          className="menu-icon-button relative flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-card"
+        >
+          <span
+            className={`menu-icon-symbol absolute transition-all duration-500 ${
+              menuOpen ? "opacity-0 rotate-90 scale-75" : "opacity-100 rotate-0 scale-100"
+            }`}
+          >
+            <FiMenu className="h-5 w-5" />
+          </span>
+          <span
+            className={`menu-icon-symbol absolute transition-all duration-500 ${
+              menuOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-75"
+            }`}
+          >
+            <FiX className="h-5 w-5" />
+          </span>
+        </button>
+      </header>
 
-      <nav
-        aria-label="Menu"
-        className="fixed bottom-4 left-1/2 z-50 flex w-fit -translate-x-1/2 items-center gap-1 rounded-full border border-border bg-background/30 px-5 py-3 shadow-xl backdrop-blur-[20px] sm:hidden"
-      >
-        {dockLinks.map((link) => {
-          const Icon = link.icon;
-          return (
-            <a
-              key={link.href}
-              href={link.href}
-              aria-label={link.label}
-              className="flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-card"
-            >
-              <Icon className="h-5 w-5" />
-            </a>
-          );
-        })}
-      </nav>
+      {menuOpen && (
+        <div
+          onAnimationEnd={() => {
+            if (menuStatus === "closing") {
+              setMenuStatus("closed");
+            }
+          }}
+          className={`fixed inset-0 z-40 flex flex-col items-center justify-start gap-8 bg-background/90 backdrop-blur-xl sm:hidden ${
+            menuStatus === "open" ? "menu-enter" : "menu-exit"
+          }`}
+        >
+          <nav className="flex w-full flex-col items-start gap-4 px-8 pt-24">
+            {menuLinks.map((link, linkIndex) => (
+               <a
+                 key={link.href}
+                 href={link.href}
+                 onClick={closeMenu}
+                 className={`text-left text-3xl font-medium text-foreground transition-colors hover:text-accent ${
+                   menuStatus === "open" ? "menu-option-enter" : ""
+                 }`}
+                 style={
+                   menuStatus === "open"
+                     ? { animationDelay: `${linkIndex * 60 + 180}ms` }
+                     : undefined
+                 }
+               >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="absolute bottom-8 flex items-center gap-3">
+            <LocaleToggle label={langLabel} />
+            <ThemeToggle label={themeLabel} />
+          </div>
+        </div>
+      )}
     </>
   );
 }
